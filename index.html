@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Wheat Tomato</title>
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+        <meta charset="UTF-8">
+
+        <!--CodeMirror files-->
+        <script src="https://cdn.jsdelivr.net/npm/codemirror@5.59.3/lib/codemirror.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/codemirror@5.59.3/mode/javascript/javascript.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/codemirror@5.59.3/lib/codemirror.css" rel="stylesheet">
+        <script type="module" src="/js/main.mjs"></script>
+    </head>
+    <body>
+        <div class="flex flex-col h-screen">
+            <div class="flex-grow-0 mx-auto text-center mt-5 font-sans">
+                <h1 class="text-3xl">WheatTomato</h1>
+                <p>The epic code based video editor</p>
+            </div>
+            <div class="flex-grow m-5 p-4 rounded-lg bg-blue-400 grid sm:grid-cols-1 lg:grid-cols-2 gap-4">
+                <div class="flex flex-col rounded-lg bg-green-200 w-full" id="video-stuff">
+                    <div class="flex-grow-0 p-2 rounded-lg bg-yellow-100">
+                        <input class="rounded-lg p-1 px-4 cursor-pointer bg-pink-400 hover:bg-pink-500" type="button" value="&#8620; render to video">
+                    </div>
+                    <div class="flex-grow relative" id="video-controls">
+                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" id="display-area-container">
+                            <canvas id="display-area" class="bg-gray-50 mx-auto rounded-lg"></canvas>
+                            <div class="rounded-lg bg-green-400 my-2 cursor-pointer" id="timenav">
+                                <div class="py-4 rounded-lg bg-red-300" style="width:50%" id="timenav-completion"></div>
+                            </div>
+                            <div class="p-2 rounded-lg bg-blue-300">
+                                <div class="mx-auto w-min">
+                                    <input type="button" value="▶" class="bg-transparent h-10 w-10 pb-0.5 pl-0.5 rounded-full bg-red-400 cursor-pointer hover:bg-red-500">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rounded-lg bg-pink-400 p-2 flex flex-col">
+                    <div class="flex-grow-0 rounded-lg bg-yellow-100 mb-2 flex flex-row">
+                        <div class="flex-grow bg-red-300 rounded-l-lg flex flex-row">
+                            <div class="flex-grow-0 bg-yellow-300 p-2 pt-2.5 rounded-l-lg hover:bg-yellow-400 cursor-pointer">&#9666;</div>
+                            <div class="flex-grow p-2"></div>
+                            <div class="flex-grow-0 bg-yellow-300 p-2 pt-2.5 hover:bg-yellow-400 cursor-pointer">&#9656;</div>
+                        </div>
+                        <div class="flex-grow-0 bg-green-300 p-2 rounded-r-lg">
+                            <input class="rounded-lg p-1 px-4 cursor-pointer bg-red-400 hover:bg-red-500" type="button" value="↓ expand">
+                            <input class="rounded-lg p-1 px-4 cursor-pointer bg-blue-400 hover:bg-blue-500" type="button" value="+ add a resource">
+                        </div>
+                    </div>
+                    <div class="flex-grow pb-2" id="code-area-container">
+                        <textarea id="code-area" class="h-full"></textarea>
+                    </div>
+                    <div class="flex-grow-0 bg-gray-300 p-4 rounded-lg">
+                        Code errors will be displayed here
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
